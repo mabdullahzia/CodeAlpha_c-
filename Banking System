@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+class Account{
+private:
+    int accNo;
+    float balance;
+
+public:
+    Account(int a,float b){
+        accNo=a;
+        balance=b;
+    }
+
+    void deposit(float amount){
+        balance+=amount;
+        cout<<"Amount Deposited\n";
+    }
+
+    void withdraw(float amount){
+        if(amount<=balance){
+            balance-=amount;
+            cout<<"Amount Withdrawn\n";
+        }else{
+            cout<<"Insufficient Balance\n";
+        }
+    }
+
+    void display(){
+        cout<<"Account No: "<<accNo<<endl;
+        cout<<"Balance: "<<balance<<endl;
+    }
+};
+
+int main(){
+    Account acc(101,5000);
+    acc.deposit(1000);
+    acc.withdraw(2000);
+    acc.display();
+
+    return 0;
+}
